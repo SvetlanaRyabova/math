@@ -1,14 +1,21 @@
 class _Math {
-    constructor(stoned,atack){
+    constructor(stoned,attack){
         this.stoned = stoned,
-        this.atack = atack
+        this.attack = attack
     }
     get changestoned() {
         return this.stoned
     }
-     set changestoned(x) {
+    set changestoned(x) {
         x = 100 - 10*x + 10;
         this.stoned = this.stoned-(this.stoned*(x))/100
+    }
+
+    get changeattack() {
+        return this.attack
+    }
+    set changeattack(x) {
+         this.attack = this.attack - (this.attack *(100 - 10*x + 10 - Math.log2(x) * 5))/100
     }
 
 }
@@ -18,9 +25,5 @@ console.log(math)
 math.changestoned = 2
 
 console.log(math)
-math.changestoned = 1
-
-console.log(math)
-math.changestoned = 1
-
+math.changeattack = 2
 console.log(math)
